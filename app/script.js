@@ -50,20 +50,12 @@ function handleCellClick(e) {
 
     if (!gameActive || board[cellIndex] !== '' || currentPlayer !== 'X') return;
 
-    statusDisplay.textContent = `您選擇了位置 ${cellIndex}`;
     makeMove(cellIndex, 'X');
 
+    // 電腦立即下棋
     if (gameActive && currentPlayer === 'O') {
-        const delay = getSafeDelay();
-        setTimeout(() => computerMove(), delay);
+        computerMove();
     }
-}
-
-// =======================
-// 安全取得延遲時間（固定延遲）
-// =======================
-function getSafeDelay() {
-    return 500; // 固定 500 毫秒延遲
 }
 
 // =======================
