@@ -60,14 +60,10 @@ function handleCellClick(e) {
 }
 
 // =======================
-// 安全取得延遲時間
+// 安全取得延遲時間（固定延遲）
 // =======================
 function getSafeDelay() {
-    const input = prompt('輸入延遲時間（0–2000 毫秒）');
-    const delay = Number(input);
-
-    if (Number.isNaN(delay)) return 500;
-    return Math.min(Math.max(delay, 0), 2000);
+    return 500; // 固定 500 毫秒延遲
 }
 
 // =======================
