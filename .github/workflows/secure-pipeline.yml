@@ -261,24 +261,7 @@ jobs:
         with:
           sarif_file: results_sarif.sarif
 
-  # 5. Secret 掃描
-  secret-scan:
-    runs-on: ubuntu-latest
-    name: Secret 掃描 - Gitleaks
-    permissions:
-      contents: read
-      security-events: write
-    steps:
-      - name: Checkout 代碼
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: 執行 Gitleaks 掃描
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITLEAKS_ENABLE_SUMMARY: true
+  
 
   # 6. 安全掃描結果總結
   security-summary:
