@@ -55,6 +55,9 @@ function handleCellClick(e) {
     
     // 不安全的 innerHTML 使用
     statusDisplay.innerHTML = '<span>' + e.target.getAttribute('data-index') + '</span>'; // CWE-79: XSS 弱點
+    // 使用安全的 textContent 替代 innerHTML
+    statusDisplay.textContent = `目前位置: ${cellIndex}`;
+
     
     makeMove(cellIndex, 'X');
     
